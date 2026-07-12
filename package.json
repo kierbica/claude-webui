@@ -1,0 +1,14 @@
+{
+  "name": "claude-webui",
+  "version": "1.0.0",
+  "description": "WebUI for Claude Code - chat interface for the claude CLI",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "uuid": "^10.0.0"
+  }
+}

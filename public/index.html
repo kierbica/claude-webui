@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude WebUI</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <!-- Auth banner -->
+  <div id="auth-banner" class="hidden">
+    <span>⚠️ Not logged in to Claude Code</span>
+    <button id="auth-dismiss">Dismiss</button>
+  </div>
+
+  <!-- Layout -->
+  <div id="app">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <h1>Claude</h1>
+        <span class="badge">WebUI</span>
+      </div>
+
+      <button id="new-chat" class="new-chat-btn">+ New Chat</button>
+
+      <div class="sidebar-section-label">Sessions</div>
+      <div id="session-list">
+        <div class="loading-sessions">Loading...</div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="model-info" id="model-info">claude CLI</div>
+        <div id="session-count"></div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main id="main">
+      <div id="chat-container">
+        <!-- Messages -->
+        <div id="messages">
+          <div class="welcome">
+            <div class="welcome-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="8.5"/>
+                <path d="M12 7v5l3 3"/>
+              </svg>
+            </div>
+            <h2>Claude WebUI</h2>
+            <p>Send a message to start a conversation with Claude Code.</p>
+          </div>
+        </div>
+
+        <!-- Thinking indicator -->
+        <div id="thinking" class="hidden">
+          <div class="thinking-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span>Claude is thinking...</span>
+        </div>
+
+        <!-- Error -->
+        <div id="error-banner" class="hidden">
+          <span id="error-text"></span>
+          <button id="error-dismiss">×</button>
+        </div>
+
+        <!-- Input area -->
+        <div id="input-area">
+          <div id="input-wrapper">
+            <textarea
+              id="message-input"
+              rows="1"
+              placeholder="Message Claude..."
+              autofocus
+            ></textarea>
+            <button id="send-btn" disabled aria-label="Send message">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 2L11 13"/>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="input-footer">
+            Claude Code • <span id="auth-status">checking auth...</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
